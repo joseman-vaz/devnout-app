@@ -10,6 +10,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
+const Post = require("../models/Post.model");
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -130,7 +131,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           }
 
           // Add the user object to the session object
-          req.session.currentUser = user.toObject();
+          req.session.currentUser = user;
           // Remove the password field
           delete req.session.currentUser.password;
 
@@ -151,6 +152,10 @@ router.get("/logout", isLoggedIn, (req, res) => {
 
     res.redirect("/");
   });
+});
+
+router.get("/private/", isLoggedIn, (req, res, next) => {
+  res.render("private/dashboard");
 });
 
 module.exports = router;

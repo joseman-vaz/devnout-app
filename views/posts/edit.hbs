@@ -1,0 +1,20 @@
+<h1>Editing Nout:</h1>
+<form action="/posts/{{this._id}}/edit" method="post">
+
+  <input type="hidden" name="id" value="{{this._id}}" />
+  <label>
+    Title:
+    <input type="text" name="title" value="{{this.title}}" required />
+  </label>
+
+  <label>
+    Description:
+    <textarea name="content" cols="30" rows="4">
+      {{this.content}}
+    </textarea>
+  </label>
+  <label for="comments">Comments:</label>
+  <textarea id="comments" name="comments">{{this.comments}}</textarea>
+
+  <button type="submit"> Update Nout </button>
+</form>

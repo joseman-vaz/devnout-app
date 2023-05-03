@@ -22,13 +22,30 @@ const capitalize = require("./utils/capitalize");
 const projectName = "devnout";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
-
+app.use(function (req, res, next) {
+  if (req.session.currentUser) {
+    res.locals.user = req.session.currentUser;
+  }
+  next();
+});
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
+
+const userRoutes = require("./routes/user.routes");
+app.use("/", userRoutes);
+
+const postRoutes = require("./routes/post.routes");
+app.use("/", postRoutes);
+
+const commentRoutes = require("./routes/comment.routes");
+app.use("/", commentRoutes);
+
+const privateRouter = require("./routes/auth.routes"); // <== has to be added
+app.use("/private", privateRouter);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

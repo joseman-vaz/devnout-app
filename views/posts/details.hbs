@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<div>
+  {{content}}
+  <br />
+  - by
+  {{author}}
+  ♥️
+</div>
+
+<a href="/posts">See all {{author}}'s posts </a>
+<br />
+<a href="/posts/{{this._id}}/delete">Delete Nout</a>
+<br />
+<form action="/posts/{{this._id}}/delete" method="POST">
+  <button>Delete nout</button>
+</form>

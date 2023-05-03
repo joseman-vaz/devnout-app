@@ -1,2 +1,10 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<h1>Home page </h1>
+<p>Welcome to devnout</p>
+
+{{#if user.currentUser}}
+  <p>Welcome {{user.currentUser.username}}!</p>
+{{else}}
+{{/if}}
+
+<a href="/posts">Explore nouts</a>
+<br />
