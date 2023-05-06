@@ -4,7 +4,16 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index", {
+    title: "index",
+    isIndex: false,
+  });
+});
+router.get("/about", (req, res, next) => {
+  res.render("about", {
+    title: "about",
+    isIndex: true,
+  });
 });
 
 router.get("/signup", (req, res, next) => {

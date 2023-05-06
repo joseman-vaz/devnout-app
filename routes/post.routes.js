@@ -6,7 +6,7 @@ const Post = require("../models/Post.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/post-create", (req, res) => {
+router.get("/post-create", isLoggedIn, (req, res) => {
   User.find()
     .then((dbUsers) => {
       res.render("posts/create", { dbUsers });
@@ -16,7 +16,7 @@ router.get("/post-create", (req, res) => {
     );
 });
 
-router.post("/post-create", (req, res, next) => {
+router.post("/post-create", isLoggedIn, (req, res, next) => {
   const { title, content, author } = req.body;
   Post.create({ title, content, author })
     .then((dbPost) => {
@@ -63,7 +63,31 @@ router.get("/posts", (req, res, next) => {
 //     })
 //     .catch((err) => next(err));
 // });
-router.post("/posts/:postId/delete", (req, res, next) => {
+
+// router.post("/posts/:postId/delete", isLoggedIn, (req, res, next) => {
+//   const { postId } = req.params;
+
+//   Post.findById(postId)
+//     .then((thePost) => {
+//       if (!thePost) {
+//         res.status(404).render("not-found");
+//         return;
+//       }
+//       if (
+//         req.session.currentUser._id.toString() !== thePost.author.toString()
+//       ) {
+//         res.status(403).render("forbidden");
+//         return;
+//       }
+//       return Post.findByIdAndDelete(postId);
+//     })
+//     .then(() => {
+//       res.redirect("/posts");
+//     })
+//     .catch((error) => next(error));
+// });
+
+router.post("/posts/:postId/delete", isLoggedIn, (req, res, next) => {
   const { postId } = req.params;
 
   Post.findByIdAndDelete(postId)
@@ -71,7 +95,7 @@ router.post("/posts/:postId/delete", (req, res, next) => {
     .catch((error) => next(error));
 });
 ///EDIT ROUTE
-router.get("/posts/:postId/edit", (req, res) => {
+router.get("/posts/:postId/edit", isLoggedIn, (req, res) => {
   const { postId } = req.params;
   console.log(`1. Editing the post ID: ${postId}`);
   Post.findById(postId).then((thePost) => {
@@ -79,7 +103,7 @@ router.get("/posts/:postId/edit", (req, res) => {
   });
 });
 
-router.post("/posts/:postId/edit", (req, res, next) => {
+router.post("/posts/:postId/edit", isLoggedIn, (req, res, next) => {
   const { id, author, title, content, comments } = req.body;
 
   Post.findByIdAndUpdate(

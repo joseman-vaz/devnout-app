@@ -3,14 +3,18 @@
   {{content}}
   <br />
   - by
-  {{author}}
-  ♥️
+  {{user.username}}
 </div>
 
-<a href="/posts">See all {{author}}'s posts </a>
+<a href="/posts">See all {{this.author}}'s posts </a>
 <br />
-<a href="/posts/{{this._id}}/delete">Delete Nout</a>
+{{#if user}}
+<a href="/post-create">Create devnout</a>
+<br>
+<a href="/posts/{{this._id}}/edit">Edit nout</a>
 <br />
-<form action="/posts/{{this._id}}/delete" method="POST">
-  <button>Delete nout</button>
-</form>
+    <form action="/posts/{{this._id}}/delete" method="POST">
+      <button>Delete nout</button>
+    </form>
+  </form>
+{{/if}}
