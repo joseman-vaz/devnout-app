@@ -1,20 +1,31 @@
-<h1>Editing Nout:</h1>
-<form action="/posts/{{this._id}}/edit" method="post">
+<body class="post_edit_page">
+  <div class="edit_form_container">
+    <h2 class="display-3">Editing Nout</h2>
+    <form
+      class="edit_create_form mb-3"
+      action="/posts/{{post._id}}/edit"
+      method="POST"
+    >
+      <label class="mb-3" style="width: 100%;">
+        <p class="mb-3">Title:</p>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="{{post.title}}"
+          required
+        />
+      </label>
+      <br />
+      <label style="width: 100%">
+        <p class="mb-3">Content:</p></label>
+      <textarea type="text" name="content" required>{{post.content}}</textarea>
 
-  <input type="hidden" name="id" value="{{this._id}}" />
-  <label>
-    Title:
-    <input type="text" name="title" value="{{this.title}}" required />
-  </label>
-
-  <label>
-    Description:
-    <textarea name="content" cols="30" rows="4">
-      {{this.content}}
-    </textarea>
-  </label>
-  <label for="comments">Comments:</label>
-  <textarea id="comments" name="comments">{{this.comments}}</textarea>
-
-  <button type="submit"> Update Nout </button>
-</form>
+      <br />
+      <br />
+      <button type="submit" class="edit_btn btn btn-primary mt-3">Update Nout</button>
+    </form>
+    <a class="post_create_link_home" href="/">Home</a>
+    <a class="post_create_link_home" href="/posts">See all nuots</a>
+  </div>
+</body>

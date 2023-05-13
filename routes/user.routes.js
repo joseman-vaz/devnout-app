@@ -30,4 +30,14 @@ router.get("/users", (req, res) => {
     );
 });
 
+router.get("/users/:userId/posts", (req, res, next) => {
+  Post.find({ user: req.params.userId })
+    .then((posts) => {
+      res.render("user-posts", { posts });
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;

@@ -1,12 +1,30 @@
-<h2>devnouts</h2>
-
-<ul>
-  {{#each posts}}
-    <li>
-      {{this.title}}
-      by
-      {{this.author.username}}
-      <a href="/posts/{{this._id}}">Read more</a>
-    </li>
-  {{/each}}
-</ul>
+<body class="list_page">
+  <h1 class="display-1">devnouts</h1>
+  <a class="text-dark" href="/post-create">Create devnout</a>
+  <div class="container mx-auto">
+    <div class="row posts_list_page">
+      {{#if posts.length}}
+        {{#each posts}}
+          <div class="col-md-3 mb-3">
+            <div class="card custom-card bg-transparent">
+              <div class="card-body">
+                <h5 class="card-title display-6">{{this.title}}</h5>
+                <p class="card-text text-truncate">{{this.content}}</p>
+                <p class="card-text">by {{author.username}}</p>
+                <a
+                  href="/posts/{{this._id}}"
+                  class="list_btns btn btn-primary"
+                >View Nout</a>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      {{else}}
+        <div class="no_posts_container">
+          <h3 class="display-1 lh-1">Seems like you have no posts in your
+            library</h3>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</body>

@@ -1,18 +1,23 @@
-<h2>New devnout</h2>
-
-<form action="/post-create" method="POST">
-  <label>
-    Title:
-    <input type="text" name="title" />
-  </label>
-  <br />
-
-  <label>
-    Content:
-    <textarea type="text" name="content"> </textarea>
-  </label>
-  <br />
-  <br />
-
-  <button type="submit"> Create devnout </button>
-</form>
+<body class="post_create_page">
+  <div class="form_container">
+    <h2 class="display-3">New devnout</h2>
+    <form class="create_form mb-3" action="/post-create" method="POST">
+      <label class="mb-3" style="width: 100%;">
+        <p class="mb-3">Title:</p>
+        <input type="text" name="title" required />
+      </label>
+      <br />
+      <label style="width: 100%">
+        <p class="mb-3">Content:</p>
+        <textarea type="text" name="content" required></textarea>
+      </label>
+      <br />
+      <br />
+      <button class="btn btn-secondary btn-lg" type="submit">
+        Create devnout
+      </button>
+    </form>
+    <a class="post_create_link_home" href="/">Home</a>
+    <a class="post_create_link_home" href="/posts">See all nuots</a>
+  </div>
+</body>

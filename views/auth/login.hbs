@@ -1,24 +1,50 @@
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+<body class="login_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div id="login-form">
+          <form action="/auth/login" method="POST">
+            <div class="mb-3 text-center">
+              <h3 class="h3 mb-3 display-5">Login</h3>
+              <label class="col">
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Your username"
+                  class="login-form-username form-control-lg bg-transparent text-gray"
+                />
+              </label>
+            </div>
+            <div class="mb-3 text-center">
+              <label>
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  class="form-control-lg bg-transparent text-gray"
+                />
+              </label>
+            </div>
+            <div class="mb-3 text-center">
+              <label>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit">Log In</button>
-
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-</div>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Your password"
+                  class="form-control-lg bg-transparent text-gray"
+                />
+              </label>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Log In</button></div>
+            {{#if errorMessage}}
+              <p class="error">{{errorMessage}}</p>
+            {{/if}}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

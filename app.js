@@ -13,6 +13,23 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+hbs.registerHelper("ifCond", function (v1, v2, options) {
+  if (v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+hbs.registerHelper("isEqual", function (a, b) {
+  return a === b;
+});
+hbs.registerHelper("eq", function (a, b, options) {
+  if (a === b) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware

@@ -1,0 +1,10 @@
+<h2>Contributors</h2>
+<ul>
+  {{#each users}}
+    <li>
+      {{this.username}}
+      {{! uncomment after you create user details page }}
+      <a href="/users/{{user._id}}/posts">Read posts</a>
+    </li>
+  {{/each}}
+</ul>

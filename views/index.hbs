@@ -1,12 +1,15 @@
 <body class="index">
-  {{#if user}}
-    <p>Welcome {{user.username}}!</p>
-  {{else}}
-  {{/if}}
-  <h1 class="home-app-title display-4">devnout</h1>
-  <h3 class="text-center"><a
-      href="/posts"
-      class="text-dark text-decoration-none"
-    >Explore nouts</a></h3>
-  <br />
+  <div class="home_title_container">
+    <h1 class="home-app-title display-1 p-3">Devnout</h1>
+  </div>
+  <h3 class="display-5 lh-1 pt-3"><p class="text-center"><a
+        href="/posts"
+        class="text-dark text-decoration-none text-center"
+      >Explore</a></p>
+  </h3>
+  {{! 
+  <div class="home_title_container">
+    <h1 class="home-app-title display-1 p-2">devnout</h1>
+  </div> }}
+
 </body>
