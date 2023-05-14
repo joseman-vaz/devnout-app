@@ -43,6 +43,20 @@ router.get("/posts", (req, res, next) => {
     });
 });
 
+///search route///
+router.get("/search", (req, res, next) => {
+  const query = req.query.query;
+  Post.find({ $text: { $search: query } })
+    .populate("author")
+    .then((dbPosts) => {
+      res.render("posts/list", { posts: dbPosts });
+    })
+    .catch((err) => {
+      console.log(`Err while searching the posts from the DB: ${err}`);
+      next(err);
+    });
+});
+
 // DELETE ROUTE/////////
 function validatePostId(req, res, next) {
   const postId = req.params.postId;

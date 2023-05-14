@@ -1,9 +1,17 @@
 const router = require("express").Router();
-
 const User = require("../models/User.model");
+const Post = require("../models/Post.model");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/user-create", (req, res) => res.render("users/create"));
+router.get("/user-create", isLoggedIn, (req, res) =>
+  res.render("users/create")
+);
 
+router.get("/user-profile", isLoggedIn, (req, res) =>
+  res.render("users/details")
+);
+
+/// Old user registration//
 router.post("/user-create", (req, res) => {
   const { username } = req.body;
   User.findOne({ username })
