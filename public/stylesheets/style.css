@@ -17,10 +17,11 @@ body.index {
 }
 
 .home-app-title {
-  font-size: 2000%;
+  /* font-size: 2000%; */
   letter-spacing: -3px;
   bottom: 0;
   right: 0;
+  padding: 0;
 }
 .home_title_container {
   position: absolute;
@@ -114,20 +115,38 @@ body.dashboard_page {
   padding: 0;
 }
 .dashboard_page h1 {
-  font-size: 2rem;
+  /* font-size: 2rem; */
   position: fixed;
   left: 0;
   margin: 10px;
   padding: 2%;
 }
 .dashboard_links {
-  font-size: 5rem;
   position: fixed;
   bottom: 0;
   left: 0;
   margin: 10px;
   padding: 2%;
 }
+.main-heading,
+.dashboard_links {
+  font-size: 3rem; /* Default font size */
+}
+
+@media (max-width: 767px) {
+  .main-heading,
+  .dashboard_links {
+    font-size: 2rem; /* Font size for screens up to 767px width */
+  }
+}
+
+@media (max-width: 479px) {
+  .main-heading,
+  .dashboard_links {
+    font-size: 1.5rem; /* Font size for screens up to 479px width */
+  }
+}
+
 /* .dashboard_links a.text-dark:hover {
   color: white;
 } */
@@ -146,7 +165,8 @@ textarea {
   border-bottom: 1px solid black;
   outline: none;
   border-radius: 10px;
-  border: #6a3fd6 solid;
+  /* border: #6a3fd6 solid; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .create_form textarea {
   padding: 10px;
@@ -160,7 +180,7 @@ textarea {
   max-height: 500px;
   width: 100%;
   padding: 20px;
-  border: 2px solid #6a3fd6;
+  /* border: 2px solid #6a3fd6; */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -175,10 +195,11 @@ textarea {
   font-size: large;
 }
 
-.post_create_page button {
+.post_create_page .createBtn {
   background-color: #6a3fd6;
 }
-.post_create_page button:hover {
+
+.post_create_page .createBtn:hover {
   background-color: #9e4784;
 }
 .post_create_link_home {
@@ -211,6 +232,10 @@ body.list_page {
   background: linear-gradient(-45deg, #f3f58c, #ffffff);
   padding-top: 0;
 }
+.list_page .card-body {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 .list_btns {
   background-color: #6a3fd6;
 }
@@ -218,7 +243,7 @@ a.list_btns:hover {
   background-color: #9e4784;
 }
 .list_page h1 {
-  font-size: 5rem;
+  /* font-size: 5rem; */
   /* position: fixed; */
   left: 0;
   margin: 10px;
@@ -230,12 +255,20 @@ a.list_btns:hover {
   margin: 10px;
   padding: 2%;
 }
+.concept-container {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .no_posts_container {
   text-align: right;
   position: fixed;
   bottom: 0;
   right: 0;
 }
+#content.form-control {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .custom-card {
   max-width: 300px;
   height: fit-content;
