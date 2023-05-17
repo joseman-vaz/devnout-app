@@ -306,7 +306,6 @@ body.post_edit_page {
   max-height: 500px;
   width: 100%;
   padding: 20px;
-  border: 2px solid #6a3fd6;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -318,7 +317,6 @@ textarea {
   border-bottom: 1px solid black;
   outline: none;
   border-radius: 10px;
-  border: #6a3fd6 solid;
 }
 .edit_btn {
   background-color: #6a3fd6;
